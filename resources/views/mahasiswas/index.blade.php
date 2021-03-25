@@ -24,13 +24,13 @@
     <th>No_Handphone</th>
     <th width="280px">Action</th>
 </tr>
-@foreach ($posts as $Mahasiswa)
+@foreach ($mahasiswas as $Mahasiswa)
 <tr>
     <td>{{ $Mahasiswa->nim }}</td>
-    <td>{{ $Mahasiswa->name }}</td>
+    <td>{{ $Mahasiswa->nama }}</td>
     <td>{{ $Mahasiswa->kelas }}</td>
     <td>{{ $Mahasiswa->jurusan }}</td>
-    <td>{{ $Mahasiswa->no_handphone }}</td>
+    <td>{{ $Mahasiswa->no_hp }}</td>
     <td>
         <form action="{{ route('mahasiswa.destroy', $Mahasiswa->nim) }}" method="POST">
             <a class="btn btn-info" href="{{ route('mahasiswa.show',$Mahasiswa->nim) }}">Show</a>
@@ -43,7 +43,4 @@
 </tr>
 @endforeach
 </table>
-<div class="d-flex float-right">
-    {{$posts->links('pagination::bootstrap-4')}}
-</div>
 @endsection

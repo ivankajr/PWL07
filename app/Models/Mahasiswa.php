@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model; //model Eloquent
 
 class Mahasiswa extends Model //definisi model
 {
-    protected $table="mahasiswa"; // Eloquent akan membuat model mahasiswa menyimpan record di table mahasiswas
+    protected $table="mahasiswas"; // Eloquent akan membuat model mahasiswa menyimpan record di table mahasiswas
     public $timestamps=false;
     protected $primaryKey = 'nim'; // Memanggil isi DB dengan Primarykey
     

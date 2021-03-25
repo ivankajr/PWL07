@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\MahasiswaController;
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Http\Request;
 
 /*

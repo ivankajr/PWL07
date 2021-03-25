@@ -25,8 +25,8 @@
                 <input type="text" name="nim" class="form-control" id="nim" value="{{ $Mahasiswa->nim }}" ariadescribedby="Nim" >
             </div>
             <div class="form-group">
-                <label for="name">Nama</label>
-                <input type="text" name="name" class="form-control" id="name" value="{{ $Mahasiswa->name }}" ariadescribedby="name" >
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" class="form-control" id="nama" value="{{ $Mahasiswa->nama }}" ariadescribedby="nama" >
             </div>
             <div class="form-group">
                 <label for="kelas">Kelas</label>
