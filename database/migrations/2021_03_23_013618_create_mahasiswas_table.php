@@ -21,7 +21,6 @@ class CreateMahasiswasTable extends Migration
             $table->string('jurusan');
             $table->string('no_hp');
             $table->timestamps();
-            $table->primary('nim');
         });
     }
 
