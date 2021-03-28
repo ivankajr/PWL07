@@ -14,11 +14,31 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //fungsi eloquent menampilkan data menggunakan pagination
-        $mahasiswas = Mahasiswa::all(); // Mengambil semua isi table
-        $posts = Mahasiswa::orderBy('nim','desc')->paginate(6);
-        return view('mahasiswas.index', compact('mahasiswas'));
-        with('i', (request()->input('page', 1) - 1) * 5);
+        $search = request()->query('search');
+        if($search){
+            // mencari mahasiswa
+            $posts = Mahasiswa::where('nama', 'LIKE', "%{$search}%")->paginate(3);
+        } else {
+            // mendapatkan list mahasiswa
+            $posts = Mahasiswa::orderBy('nim','desc')->paginate(5); 
+        }
+        // $mahasiswas = Mahasiswa::all(); // Mengambil semua isi tabel
+        // $posts = Mahasiswa::orderBy('nim', 'desc')->paginate(5);
+        return view('mahasiswa.index', compact('posts'));
+        with('i',(request()->input('page', 1) - 1) * 5);
+    }
+
+    public function cari(Request $request){
+        // Menangkap pencarian 
+        $cari = $request -> cari;
+
+        // Mengambil data dari table mahasiswa sesuai pencarian data
+        $mahasiswas = DB::table('mahasiswa')
+        ->where('nama','like',"%".$cari."%")
+        ->paginate();
+        
+        // Mengirim data mahasiswa ke view index
+        return view('find',['mahasiswas' => $mahasiswa]);
     }
 
     /**
@@ -46,6 +66,8 @@ class MahasiswaController extends Controller
             'kelas' => 'required',
             'jurusan' => 'required',
             'no_hp' => 'required',
+            'email' => 'required',
+            'tanggal_lahir' => 'required',
         ]);
         //fungsi eloquent untuk menambahkan data
         Mahasiswa::create($request->all());
@@ -98,6 +120,8 @@ class MahasiswaController extends Controller
             'kelas' => 'required',
             'jurusan' => 'required',
             'no_hp' => 'required',
+            'email' => 'required',
+            'tanggal_lahir' => 'required',
         ]);
         //fungsi eloquent untuk mengupdate data inputan kita
         Mahasiswa::find($nim)->update($request->all());
