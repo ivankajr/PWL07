@@ -40,6 +40,14 @@
                 <label for="no_hp">no_hp</label>
                 <input type="no_hp" name="no_hp" class="form-control" id="no_hp" value="{{ $Mahasiswa->no_hp }}" ariadescribedby="no_hp" >
             </div>
+            <div class="form-group">
+            <label for="email">email</label>
+            <input type="email" name="email" class="form-control" id="email" aria-describedby="email" >
+        </div>
+        <div class="form-group">
+            <label for="tanggal_lahir">tanggal_lahir</label>
+            <input type="tanggal_lahir" name="tanggal_lahir" class="form-control" id="tanggal_lahir" aria-describedby="tanggal_lahir" >
+        </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
