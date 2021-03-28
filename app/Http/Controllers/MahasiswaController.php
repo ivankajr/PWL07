@@ -73,7 +73,7 @@ class MahasiswaController extends Controller
         Mahasiswa::create($request->all());
 
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
-        return redirect()->route('mahasiswas.index')
+        return redirect()->route('mahasiswa.index')
             ->with('success', 'Mahasiswa berhasil di tambahkan');
     }
 
@@ -126,7 +126,7 @@ class MahasiswaController extends Controller
         //fungsi eloquent untuk mengupdate data inputan kita
         Mahasiswa::find($nim)->update($request->all());
         //jika data berhasil di update, akan kembali ke halaman uutama
-            return redirect()->route('mahasiswas.index')
+            return redirect()->route('mahasiswa.index')
                 ->with('success', 'Mahasiswa Berhasil Diupdate');
     }
 
@@ -140,7 +140,7 @@ class MahasiswaController extends Controller
     {
         //fungsi eloquent untuk menghapus data
         Mahasiswa::find($nim)->delete();
-        return redirect()->route('mahasiswas.index')
+        return redirect()->route('mahasiswa.index')
             -> with('success', 'Mahasiswa Berhasil Dihapus');
     }
 }
