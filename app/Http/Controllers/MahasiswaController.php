@@ -28,18 +28,18 @@ class MahasiswaController extends Controller
         with('i',(request()->input('page', 1) - 1) * 5);
     }
 
-    public function cari(Request $request){
-        // Menangkap pencarian 
-        $cari = $request -> cari;
+    // public function cari(Request $request){
+    //     // Menangkap pencarian 
+    //     $cari = $request -> cari;
 
-        // Mengambil data dari table mahasiswa sesuai pencarian data
-        $mahasiswas = DB::table('mahasiswa')
-        ->where('nama','like',"%".$cari."%")
-        ->paginate();
+    //     // Mengambil data dari table mahasiswa sesuai pencarian data
+    //     $mahasiswas = DB::table('mahasiswa')
+    //     ->where('nama','like',"%".$cari."%")
+    //     ->paginate();
         
-        // Mengirim data mahasiswa ke view index
-        return view('find',['mahasiswas' => $mahasiswa]);
-    }
+    //     // Mengirim data mahasiswa ke view index
+    //     return view('find',['mahasiswas' => $mahasiswa]);
+    // }
 
     /**
      * Show the form for creating a new resource.
