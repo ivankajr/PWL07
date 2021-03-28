@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/mahasiswa');
 });
-Route::resource('mahasiswa', MahasiswaController::class);
-Route::get('/mahasiswa/cari','MahasiswaController@cari');
+Route::resource('/mahasiswa', MahasiswaController::class);
+// Route::get('mahasiswa/cari','MahasiswaController@cari');
