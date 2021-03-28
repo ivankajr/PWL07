@@ -20,5 +20,7 @@ class Mahasiswa extends Model //definisi model
         'kelas',
         'jurusan',
         'no_hp',
+        'email',
+        'tanggal_lahir',
     ];
 };
