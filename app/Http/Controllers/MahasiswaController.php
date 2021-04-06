@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
+use App\Models\Kelas;
 
 class MahasiswaController extends Controller
 {
@@ -14,18 +15,21 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $search = request()->query('search');
-        if($search){
-            // mencari mahasiswa
-            $posts = Mahasiswa::where('nama', 'LIKE', "%{$search}%")->paginate(3);
-        } else {
-            // mendapatkan list mahasiswa
-            $posts = Mahasiswa::orderBy('nim','desc')->paginate(5); 
-        }
-        // $mahasiswas = Mahasiswa::all(); // Mengambil semua isi tabel
-        // $posts = Mahasiswa::orderBy('nim', 'desc')->paginate(5);
-        return view('mahasiswas.index', compact('posts'));
-        with('i',(request()->input('page', 1) - 1) * 5);
+        // $search = request()->query('search');
+        // if($search){
+        //     // mencari mahasiswa
+        //     $posts = Mahasiswa::where('nama', 'LIKE', "%{$search}%")->paginate(3);
+        // } else {
+        //     // mendapatkan list mahasiswa
+        //     $posts = Mahasiswa::orderBy('nim','desc')->paginate(5); 
+        // }
+        // // $mahasiswas = Mahasiswa::all(); // Mengambil semua isi tabel
+        // // $posts = Mahasiswa::orderBy('nim', 'desc')->paginate(5);
+        // return view('mahasiswas.index', compact('posts'));
+        // with('i',(request()->input('page', 1) - 1) * 5);
+        $mahasiswa = Mahasiswa::with('kelas')->get();
+        $paginate = Mahasiswa::orderBy('nim', 'asc')->paginate(3);
+        return view ('mahasiswas.index',['mahasiswa' => $mahasiswa,'paginate'=>$paginate]);
     }
 
     // public function cari(Request $request){
