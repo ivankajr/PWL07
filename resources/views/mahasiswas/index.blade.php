@@ -26,8 +26,8 @@
     <th>Tanggal_Lahir</th>
     <th width="280px">Action</th>
 </tr>
-    @if (count($posts) > 0)
-            @foreach ($posts as $Mahasiswa)
+
+            @foreach ($paginate as $Mahasiswa)
             <tr>
                 <td>{{ $Mahasiswa->nim }}</td>
                 <td>{{ $Mahasiswa->nama }}</td>
@@ -47,16 +47,16 @@
                 </td>
             </tr>
             @endforeach
-        @else 
+
             <div class="float-left my-2">
                 <h5 class="text-danger">Mahasiswa Not Found !</h4>
             </div>
             <div class="float-right my-2">
                 <a class="btn btn-success mt-3" href="{{ route('mahasiswa.index') }}">Kembali</a> 
             </div>
-        @endif
+    
     </table>
     <div class="d-flex float-none">
-        {{$posts->links('pagination::bootstrap-4')}}
+        {{$paginate->links('pagination::bootstrap-4')}}
     </div>
 @endsection
