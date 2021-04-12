@@ -112,6 +112,12 @@ class MahasiswaController extends Controller
         $Mahasiswa = Mahasiswa::with('kelas')->where('nim', $nim)->first();
         return view('mahasiswas.detail', ['Mahasiswa' => $Mahasiswa]);
     }
+    public function showKhs($nim) {
+        $mahasiswa = Mahasiswa::with('kelas', 'matakuliah')->where('nim', $nim)->first();
+        return view('mahasiswas.detailKhs', compact('mahasiswa'));
+        // dd($mahasiswa);
+    }
+
 
     /**
      * Show the form for editing the specified resource.
