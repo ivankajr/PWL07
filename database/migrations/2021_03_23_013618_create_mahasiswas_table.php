@@ -14,11 +14,11 @@ class CreateMahasiswasTable extends Migration
     public function up()
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
-            $table->string('nim')->primary();
-            $table->string('nama');
-            $table->string('kelas');
-            $table->string('jurusan');
-            $table->string('no_hp');
+            $table->string('nim', 20)->primary();
+            $table->string('nama')->nullable();
+            $table->string('kelas')->nullable();
+            $table->string('jurusan')->nullable();
+            $table->string('no_hp')->nullable();
             $table->timestamps();
         });
     }
