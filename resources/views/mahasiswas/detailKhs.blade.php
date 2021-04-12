@@ -6,10 +6,10 @@
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
             <div class="text-center my-3">
-                <h2>KARTU HASIL STUDI (KHS)</h2>    
+                <h2>KARTU HASIL STUDI (KHS)</h2>        
             </div>
             <div>
-                <h4><span class="text-bold">Nama:</span> {{$mahasiswa->name}}</h4>
+                <h4><span class="text-bold">Nama:</span> {{$mahasiswa->nama}}</h4>
                 <h4><span class="text-bold">Nim:</span> {{$mahasiswa->nim}}</h4>
                 <h4><span class="text-bold">Kelas:</span> {{$mahasiswa->kelas->nama_kelas}}</h4>
             </div>
