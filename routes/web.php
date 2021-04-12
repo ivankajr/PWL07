@@ -20,3 +20,4 @@ Route::get('/', function () {
 });
 Route::resource('/mahasiswa', MahasiswaController::class);
 // Route::get('mahasiswa/cari','MahasiswaController@cari');
+Route::get('/mahasiswa/nilai/{nim}', [MahasiswaController::class, 'showKhs'])->name('mahasiswa.showKhs');
