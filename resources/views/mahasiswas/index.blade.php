@@ -43,14 +43,12 @@
                         @csrf 
                         @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
+                    <a class="btn btn-warning" href="{{ route('mahasiswa.showKhs', $Mahasiswa->nim) }}">Nilai</a>
                 </form>
                 </td>
             </tr>
             @endforeach
 
-            <div class="float-left my-2">
-                <h5 class="text-danger">Mahasiswa Not Found !</h4>
-            </div>
             <div class="float-right my-2">
                 <a class="btn btn-success mt-3" href="{{ route('mahasiswa.index') }}">Kembali</a> 
             </div>
